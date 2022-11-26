@@ -34,11 +34,14 @@ class Bay(Base):
 
 
 # engine = create_engine("sqlite:///fridges.db", echo=True)
-engine = create_engine("mysql+pymysql://root:root@localhost:3306/fridgesdb", echo=True)
+engine = create_engine("mysql+pymysql://root:password@localhost:3306/fridgedb", echo=True)
+
 
 Base.metadata.create_all(bind=engine)
 
 Session = sessionmaker(bind=engine)
 session = Session()
 
-# bay1table = Bay(bay1.time, bay1.chillerStatus, bay1.temp, bay1.hum, bay1.pwr)
+bay1table = Bay( bay1.time, bay1.chillerStatus, bay1.temp, bay1.hum, bay1.pwr)
+
+
